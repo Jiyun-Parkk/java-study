@@ -1,6 +1,4 @@
-import java.util.Random;
 import java.util.Scanner;
-
 public class Main {
 
   public static void main(String[] args) {
@@ -10,10 +8,11 @@ public class Main {
     LottoStore lottoStore = new LottoStore();
     Lotto[] myLotto = lottoStore.issueLotto(n);
     Lotto winLotto = lottoStore.issueWinLotto();
-    for (int i = 0; i < myLotto.length; i++) {
-      lottoStore.printResult(myLotto[i], winLotto);
+    for (Lotto lotto: myLotto) {
+      lottoStore.printResult(lotto, winLotto);
     }
 
   }
 
 }
+
