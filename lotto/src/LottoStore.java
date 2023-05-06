@@ -1,30 +1,28 @@
 import java.util.Arrays;
-import java.util.Random;
 
 public class LottoStore {
 
   // REVIEW: 인스턴스 변수에 접근제어자와 생성자를 활용해보세요.
-  Random random = new Random();
-  boolean[] checkArray = new boolean[45];
 
   public Lotto createLotto() {
+    int[] lottoBalls = new int[45];
+    for(int i = 0; i < lottoBalls.length; i++) {
+      lottoBalls[i] = i + 1;
+    }
     int[] lottoNum = new int[6];
     int bonusNum = 0;
-    int index = 0;
-    int getNum;
-    while (lottoNum[5] == 0 || bonusNum == 0) {
-      getNum = random.nextInt(45);
-      if(checkArray[getNum]) {
-        continue;
+    for(int i = 0; i < 7; i++) {
+      int random = (int) Math.floor(Math.random() * 45);
+      int temp = lottoBalls[i];
+      lottoBalls[i] = lottoBalls[random];
+      lottoBalls[random] = temp;
+      if(i == 6) {
+        bonusNum = lottoBalls[i];
+      } else {
+        lottoNum[i] = lottoBalls[i];
       }
-        checkArray[getNum] = true;
-        if(index < lottoNum.length) {
-          lottoNum[index] = getNum + 1;
-          index += 1;
-        } else {
-          bonusNum = getNum + 1;
-        }
     }
+
     return new Lotto(lottoNum, bonusNum);
   }
 
@@ -49,13 +47,15 @@ public class LottoStore {
     int count = 0;
     boolean isBonus = getMyBonusNumber == getWinBonusNumber;
 
-    for (int winNumber: getWinNumbers) {
+    for(int winNumber: getWinNumbers) {
       for(int myNumber: getMyNumbers) {
         if (winNumber == myNumber) {
           count += 1;
         }
       }
     }
+
+
     switch (count) {
       case 6:
         winLevel = 1;
