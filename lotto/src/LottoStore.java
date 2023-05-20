@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class LottoStore {
 
@@ -23,6 +25,7 @@ public class LottoStore {
       }
     }
 
+
     return new Lotto(lottoNum, bonusNum);
   }
 
@@ -46,6 +49,8 @@ public class LottoStore {
     int winLevel = 0;
     int count = 0;
     boolean isBonus = getMyBonusNumber == getWinBonusNumber;
+
+    ArrayList<Integer> list = new ArrayList<>(List.of(getWinBonusNumber));
 
     for(int winNumber: getWinNumbers) {
       for(int myNumber: getMyNumbers) {
