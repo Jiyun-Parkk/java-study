@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/beakjoon/beakjoon.iml" filepath="$PROJECT_DIR$/beakjoon/beakjoon.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-git-study.iml" filepath="$PROJECT_DIR$/.idea/java-git-study.iml" />
       <module fileurl="file://$PROJECT_DIR$/java_jung/java_jung.iml" filepath="$PROJECT_DIR$/java_jung/java_jung.iml" />
+      <module fileurl="file://$PROJECT_DIR$/programmers/programmers.iml" filepath="$PROJECT_DIR$/programmers/programmers.iml" />
     </modules>
   </component>
 </project>
